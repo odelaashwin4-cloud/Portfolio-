@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Ashwin Kumar</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='/intro.css') }}">
+</head>
+<body>
+
+    <main class="intro-screen">
+
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+
+        <div class="intro-content">
+
+            <p class="intro-label">✦ HELLO, EXPLORER ✦</p>
+
+            <h1>
+                Welcome to
+                <span>My World</span>
+            </h1>
+
+            <p class="intro-subtitle">
+                Ashwin Kumar • Developer • Creator
+            </p>
+
+            <div class="progress-area">
+
+                <div class="progress-track">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <div class="progress-info">
+                    <span id="status">Launching creativity...</span>
+                    <span id="percentage">0%</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="intro.js"></script>
+</body>
+</html>

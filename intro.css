@@ -1,0 +1,449 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-dark: #20243a;
+    --text-muted: #73788e;
+    --purple: #7770e8;
+    --blue: #43baf2;
+    --pink: #ee76b5;
+    --border: rgba(130, 130, 210, 0.14);
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+    background: #ffffff;
+    color: var(--text-dark);
+}
+
+/* ================================
+   MAIN INTRO SCREEN
+================================ */
+
+.intro-screen {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 10%,
+            rgba(194, 186, 255, 0.30),
+            transparent 36%
+        ),
+        radial-gradient(
+            ellipse at 92% 72%,
+            rgba(173, 216, 255, 0.28),
+            transparent 35%
+        ),
+        #ffffff;
+}
+
+/* ================================
+   SOFT BACKGROUND GLOW
+================================ */
+
+.intro-screen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 20% 35%,
+            rgba(130, 117, 242, 0.12),
+            transparent 23%
+        ),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(245, 125, 187, 0.12),
+            transparent 22%
+        ),
+        radial-gradient(
+            circle at 55% 90%,
+            rgba(100, 199, 245, 0.13),
+            transparent 25%
+        );
+}
+
+/* ================================
+   INTRO CONTENT CARD
+================================ */
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+
+    width: min(90%, 720px);
+    padding: 48px 34px;
+
+    text-align: center;
+
+    border: 1px solid rgba(150, 150, 220, 0.12);
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.60);
+
+    box-shadow:
+        0 25px 70px rgba(110, 104, 210, 0.07),
+        0 8px 30px rgba(100, 180, 240, 0.05);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    animation: introAppear 1.1s ease both;
+}
+
+/* ================================
+   SMALL LABEL
+================================ */
+
+.intro-label {
+    margin-bottom: 25px;
+
+    color: #7375d9;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+/* ================================
+   MAIN HEADING
+================================ */
+
+h1 {
+    color: var(--text-dark);
+
+    font-size: clamp(40px, 8vw, 78px);
+    font-weight: 800;
+    line-height: 1.08;
+
+    letter-spacing: -3px;
+}
+
+h1 span {
+    display: block;
+    margin-top: 12px;
+
+    background: linear-gradient(
+        100deg,
+        #7770e8,
+        #6889ed,
+        #3ebcf0
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(
+        0 8px 18px rgba(111, 126, 234, 0.12)
+    );
+}
+
+/* ================================
+   SUBTITLE
+================================ */
+
+.intro-subtitle {
+    margin-top: 25px;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.8;
+}
+
+/* ================================
+   PROGRESS AREA
+================================ */
+
+.progress-area {
+    width: min(100%, 430px);
+    margin: 45px auto 0;
+}
+
+/* Track */
+
+.progress-track {
+    width: 100%;
+    height: 7px;
+
+    overflow: hidden;
+    border-radius: 50px;
+
+    background: #eeeeff;
+    border: 1px solid rgba(126, 124, 220, 0.08);
+
+    box-shadow:
+        inset 0 2px 5px rgba(100, 100, 180, 0.04);
+}
+
+/* Progress */
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #8374e8,
+        #648ce9,
+        #47bdf1
+    );
+
+    box-shadow:
+        0 0 12px rgba(111, 142, 235, 0.35);
+
+    transition: width 0.08s linear;
+}
+
+/* Progress details */
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+    margin-top: 13px;
+
+    color: #9a9db0;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+#percentage {
+    color: #7775dd;
+    font-weight: 700;
+}
+
+/* ================================
+   FLOATING BUBBLES
+================================ */
+
+.orb {
+    position: absolute;
+
+    border-radius: 50%;
+    pointer-events: none;
+
+    animation: floatingOrb 10s ease-in-out infinite;
+}
+
+/* Purple bubble */
+
+.orb-one {
+    width: 210px;
+    height: 210px;
+
+    top: 8%;
+    left: 5%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(175, 157, 255, 0.55),
+            rgba(128, 111, 237, 0.25) 38%,
+            rgba(128, 111, 237, 0.03) 70%,
+            transparent 75%
+        );
+
+    filter: blur(2px);
+}
+
+/* Pink bubble */
+
+.orb-two {
+    width: 245px;
+    height: 245px;
+
+    right: 3%;
+    bottom: 8%;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(247, 126, 190, 0.45),
+            rgba(242, 155, 207, 0.16) 42%,
+            transparent 72%
+        );
+
+    filter: blur(3px);
+
+    animation-delay: -4s;
+}
+
+/* ================================
+   CIRCULAR RINGS
+================================ */
+
+.intro-content::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    top: -150px;
+    right: -130px;
+
+    border: 1px solid rgba(129, 133, 225, 0.12);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 25px rgba(130, 130, 225, 0.025),
+        0 0 0 55px rgba(130, 130, 225, 0.02);
+
+    pointer-events: none;
+}
+
+/* Additional ring */
+
+.intro-content::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    right: 35px;
+    bottom: 32px;
+
+    border-radius: 50%;
+
+    background: #6ac7ed;
+
+    box-shadow:
+        0 0 12px rgba(77, 190, 240, 0.35);
+
+    animation: dotPulse 3s ease-in-out infinite;
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes introAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes floatingOrb {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(18px, -24px);
+    }
+}
+
+@keyframes dotPulse {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* ================================
+   MOBILE RESPONSIVE
+================================ */
+
+@media (max-width: 600px) {
+    .intro-content {
+        width: 90%;
+        padding: 42px 22px;
+        border-radius: 25px;
+    }
+
+    .intro-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    h1 {
+        font-size: clamp(37px, 10vw, 58px);
+        letter-spacing: -2px;
+    }
+
+    .intro-subtitle {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .progress-area {
+        margin-top: 38px;
+    }
+
+    .orb-one {
+        width: 150px;
+        height: 150px;
+        top: 5%;
+        left: -65px;
+    }
+
+    .orb-two {
+        width: 180px;
+        height: 180px;
+        right: -70px;
+        bottom: 8%;
+    }
+
+    .intro-content::before {
+        width: 190px;
+        height: 190px;
+        top: -100px;
+        right: -100px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
